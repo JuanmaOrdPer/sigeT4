@@ -21,7 +21,7 @@ const Quiz = () => {
   };
 
   useEffect(() => {
-    fetch("/preguntas.json")
+    fetch(`${process.env.PUBLIC_URL}/tema4.json`)
       .then((response) => response.json())
       .then((data) => {
         const quizQuestions = data.quiz;
@@ -112,7 +112,7 @@ const Quiz = () => {
   };
 
   const fetchQuestions = () => {
-    fetch("/preguntas.json")
+    fetch(`${process.env.PUBLIC_URL}/tema4.json`)
       .then((response) => response.json())
       .then((data) => {
         const quizQuestions = data.quiz;
@@ -138,7 +138,13 @@ const Quiz = () => {
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Añadimos un pequeño retraso para asegurar que el DOM se ha actualizado
+    setTimeout(() => {
+      const mainContent = document.querySelector('.main-content');
+      if (mainContent) {
+        mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   };
 
   const getCurrentQuestions = () => {
@@ -152,7 +158,7 @@ const Quiz = () => {
   if (loading) {
     return (
       <div className="header">
-        <h2>Cargando preguntas...</h2>
+        <h2>Cargando preguntas del tema 4...</h2>
       </div>
     );
   }
@@ -163,7 +169,7 @@ const Quiz = () => {
         <div className="header">
           <h1>
             Cuestionario ERP-CRM{" "}
-            <span className="subtitle">({questions.length} preguntas en total)</span>
+            <span className="subtitle">({questions.length} preguntas por examen)</span>
           </h1>
           <h3>Total preguntas en BD: {allQuestions.length}</h3>
           <div className="progress-container">
@@ -195,17 +201,19 @@ const Quiz = () => {
                 <div>
                   {question.options.map((option, i) => (
                     <label
-                      key={i}
-                      className={`option ${
-                        getQuestionStatus(index) === "correct" && option === question.answer
-                          ? "correct"
-                          : getQuestionStatus(index) === "incorrect" && option === question.answer
-                          ? "correct"
-                          : getQuestionStatus(index) === "incorrect" && option === selectedAnswers[index]
-                          ? "incorrect"
-                          : ""
-                      }`}
-                    >
+                    key={i}
+                    className={`option ${
+                      (getQuestionStatus(index) === "correct" && option === question.answer) || option === question.answer
+                        ? "correct"
+                        : (getQuestionStatus(index) === "incorrect" && option === question.answer) ||
+                          (getQuestionStatus(index) === "incorrect" && option === selectedAnswers[index])
+                        ? "incorrect"
+                        : getQuestionStatus(index) === "unanswered"
+                        ? "unanswered"
+                        : ""
+                    }`}
+                  >
+                  
                       <input
                         type="radio"
                         name={`question-${index}`}
@@ -285,7 +293,7 @@ const Quiz = () => {
         )}
       </div>
       <div className="sidebar">
-        <h3>Preguntas</h3>
+        <h3>Tema 4</h3>
         <div className="question-grid">
           {questions.map((_, index) => (
             <div

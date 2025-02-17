@@ -518,7 +518,7 @@
                 "Un objeto no puede estar relacionado con otros objetos",
                 "Ninguna de las respuestas es correcta"
             ],
-            "answer": "Un objeto puede estar relacionado con uno o más objetos"
+            "answer": "Ninguna de las respuestas es correcta"
         },
         {
             "question": "¿Qué tipo de vista permite visualizar datos en forma de lista jerárquica en Odoo?",
@@ -948,7 +948,7 @@
                 "many2many",
                 "char"
             ],
-            "answer": "many2many"
+            "answer": "many2one"
         },
         {
             "question": "¿Qué etapa sigue inmediatamente después de la 'implantación' en el ciclo de vida del ERP?",
@@ -1101,7 +1101,7 @@
             "answer": "Informe de auditoría"
         },
         {
-            "question": "¿Qué permite la opción 'hereded' en la creación de grupos de usuarios en Odoo?",
+            "question": "¿Qué permite la opción 'herededa' en la creación de grupos de usuarios en Odoo?",
             "options": [
                 "Borrar permisos de grupos existentes",
                 "Heredar permisos de otros grupos automáticamente",
@@ -2469,6 +2469,406 @@
                 "Ambas B y C son correctas"
             ],
             "answer": "Ambas B y C son correctas"
+        },
+        {
+            "question": "¿Cuál es el objetivo principal de la unidad de trabajo 4 sobre ERP-CRM?",
+            "options": [
+                "Aprender a programar en Odoo",
+                "Consolidar lo aprendido en unidades anteriores y adaptarlo a la realidad empresarial",
+                "Comparar diferentes tipos de ERP",
+                "Desarrollar un CRM desde cero"
+            ],
+            "answer": "Consolidar lo aprendido en unidades anteriores y adaptarlo a la realidad empresarial"
+        },
+        {
+            "question": "¿Cuál de los siguientes NO es un tipo de empresa mencionado en la presentación?",
+            "options": [
+                "Pequeña y mediana empresa",
+                "Sector servicios",
+                "Empresas de minería",
+                "Administración pública"
+            ],
+            "answer": "Empresas de minería"
+        },
+        {
+            "question": "¿Cuál es la primera etapa del ciclo de vida de un ERP?",
+            "options": [
+                "Puesta en marcha",
+                "Implantación",
+                "Selección",
+                "Adopción"
+            ],
+            "answer": "Adopción"
+        },
+        {
+            "question": "¿Qué tipo de motivaciones pueden llevar a una empresa a adoptar un ERP?",
+            "options": [
+                "Tecnológicas, de procesos de negocio, estratégicas y competitivas",
+                "Solo económicas",
+                "Únicamente estratégicas",
+                "Principalmente para reducir costes"
+            ],
+            "answer": "Tecnológicas, de procesos de negocio, estratégicas y competitivas"
+        },
+        {
+            "question": "¿Qué razón tecnológica podría justificar la adopción de un ERP?",
+            "options": [
+                "La competencia utiliza un ERP",
+                "Diversidad de sistemas que dificultan la integración",
+                "Reducción de costes en personal",
+                "Automatización de procesos manuales"
+            ],
+            "answer": "Diversidad de sistemas que dificultan la integración"
+        },
+        {
+            "question": "¿Qué razón estratégica puede justificar la implantación de un ERP?",
+            "options": [
+                "Mejorar la eficiencia en la organización",
+                "Disminuir los costes operativos",
+                "Obtener una ventaja competitiva en el mercado",
+                "Reducir el número de empleados"
+            ],
+            "answer": "Obtener una ventaja competitiva en el mercado"
+        },
+        {
+            "question": "¿Cuál de las siguientes afirmaciones sobre la selección de un ERP es correcta?",
+            "options": [
+                "Es un proceso poco relevante en la implantación",
+                "Debe minimizar la necesidad de personalización",
+                "Debe realizarse sin la participación de los empleados",
+                "Se basa únicamente en el precio del software"
+            ],
+            "answer": "Debe minimizar la necesidad de personalización"
+        },
+        {
+            "question": "¿Qué fase del ciclo de vida de un ERP implica definir los procesos críticos y las áreas implicadas?",
+            "options": [
+                "Implantación",
+                "Puesta en marcha",
+                "Selección",
+                "Mantenimiento"
+            ],
+            "answer": "Selección"
+        },
+        {
+            "question": "¿Qué opción describe mejor la fase de implantación de un ERP?",
+            "options": [
+                "Es un proceso corto y sencillo",
+                "Implica solo la instalación del software",
+                "Debe gestionarse como un proyecto estructurado",
+                "No requiere planificación previa"
+            ],
+            "answer": "Debe gestionarse como un proyecto estructurado"
+        },
+        {
+            "question": "¿Cuál de las siguientes afirmaciones sobre la adaptación de un ERP a una empresa es correcta?",
+            "options": [
+                "Siempre es mejor personalizar el ERP que cambiar los procesos",
+                "La empresa puede adaptarse al ERP o viceversa",
+                "El ERP no permite modificaciones",
+                "La personalización es innecesaria"
+            ],
+            "answer": "La empresa puede adaptarse al ERP o viceversa"
+        },
+        {
+            "question": "¿Qué opción es un beneficio de un ERP bien implementado?",
+            "options": [
+                "Mayor tiempo en la toma de decisiones",
+                "Integración de todas las áreas de la empresa",
+                "Mayor resistencia al cambio por parte de los empleados",
+                "Mayor complejidad en la gestión de la información"
+            ],
+            "answer": "Integración de todas las áreas de la empresa"
+        },
+        {
+            "question": "¿Qué es un modelo de objetos en Odoo?",
+            "options": [
+                "Una base de datos externa",
+                "Una representación de datos empresariales en forma de objetos",
+                "Un lenguaje de programación",
+                "Un tipo de ERP"
+            ],
+            "answer": "Una representación de datos empresariales en forma de objetos"
+        },
+        {
+            "question": "¿Cuál de las siguientes opciones es una relación en el modelo de objetos de Odoo?",
+            "options": [
+                "Uno a uno",
+                "Uno a muchos",
+                "Muchos a muchos",
+                "Todas las anteriores"
+            ],
+            "answer": "Todas las anteriores"
+        },
+        {
+            "question": "¿Qué es una vista en Odoo?",
+            "options": [
+                "Un informe",
+                "La representación visual de los datos",
+                "Un modelo de datos",
+                "Un tipo de módulo"
+            ],
+            "answer": "La representación visual de los datos"
+        },
+        {
+            "question": "¿Qué tipo de vista en Odoo se utiliza para mostrar datos en una tabla?",
+            "options": [
+                "Vista de formulario",
+                "Vista de árbol",
+                "Vista Kanban",
+                "Vista de calendario"
+            ],
+            "answer": "Vista de árbol"
+        },
+        {
+            "question": "¿Cuál de las siguientes afirmaciones sobre la personalización de vistas en Odoo es correcta?",
+            "options": [
+                "No se pueden modificar las vistas",
+                "Las vistas solo pueden ser editadas por el administrador",
+                "Las vistas pueden ser personalizadas mediante XML",
+                "Las vistas se almacenan en JSON"
+            ],
+            "answer": "Las vistas pueden ser personalizadas mediante XML"
+        },
+        {
+            "question": "¿Qué tipo de acceso pueden tener los usuarios en Odoo?",
+            "options": [
+                "Usuario normal y administrador",
+                "Solo administrador",
+                "Usuario con permisos personalizados",
+                "Usuario con permisos personalizados y administrador"
+            ],
+            "answer": "Usuario con permisos personalizados y administrador"
+        },
+        {
+            "question": "¿Qué tipo de vista en Odoo permite organizar datos en formato de tarjetas?",
+            "options": [
+                "Vista de formulario",
+                "Vista de árbol",
+                "Vista Kanban",
+                "Vista de calendario"
+            ],
+            "answer": "Vista Kanban"
+        },
+        {
+            "question": "¿Qué componente en Odoo permite restringir el acceso a ciertas funcionalidades?",
+            "options": [
+                "Roles de usuario",
+                "Grupos de seguridad",
+                "Reglas de acceso",
+                "Todas las anteriores"
+            ],
+            "answer": "Todas las anteriores"
+        },
+        {
+            "question": "¿Qué herramienta en Odoo permite la generación de informes en PDF?",
+            "options": [
+                "Excel",
+                "QWeb",
+                "Kanban",
+                "Tree view"
+            ],
+            "answer": "QWeb"
+        },
+        {
+            "question": "¿Cuáles son las cuatro etapas básicas del ciclo de vida de un ERP?",
+            "options": [
+                "Análisis, Desarrollo, Pruebas e Implementación",
+                "Adopción, Selección, Implantación y Puesta en marcha",
+                "Planificación, Diseño, Implementación y Mantenimiento",
+                "Evaluación, Implementación, Pruebas y Revisión"
+            ],
+            "answer": "Adopción, Selección, Implantación y Puesta en marcha"
+        },
+        {
+            "question": "¿Cuál es una de las principales tareas en la fase de adopción de un ERP?",
+            "options": [
+                "Configurar la base de datos del sistema",
+                "Elaborar un análisis de los procesos",
+                "Seleccionar el proveedor del software",
+                "Capacitar a los empleados en el uso del ERP"
+            ],
+            "answer": "Elaborar un análisis de los procesos"
+        },
+        {
+            "question": "¿Qué factor es clave en la fase de selección de un ERP?",
+            "options": [
+                "El tamaño de la empresa",
+                "El número de empleados",
+                "El alineamiento del sistema con los requerimientos funcionales",
+                "El costo del ERP"
+            ],
+            "answer": "El alineamiento del sistema con los requerimientos funcionales"
+        },
+        {
+            "question": "¿Cuál es una tarea importante en la fase de implantación de un ERP?",
+            "options": [
+                "Comprar nuevos servidores",
+                "Definir roles y permisos de usuarios",
+                "Cerrar el proyecto y archivar documentación",
+                "Eliminar datos antiguos de la empresa"
+            ],
+            "answer": "Definir roles y permisos de usuarios"
+        },
+        {
+            "question": "¿Qué es una metodología de implantación en un ERP?",
+            "options": [
+                "Una serie de pasos estructurados para la correcta implementación del sistema",
+                "Un conjunto de reglas para elegir un ERP",
+                "Un software de gestión de proyectos",
+                "Un documento legal para la instalación del ERP"
+            ],
+            "answer": "Una serie de pasos estructurados para la correcta implementación del sistema"
+        },
+        {
+            "question": "¿Qué tipo de integración de pruebas en un ERP prueba todos los módulos al mismo tiempo?",
+            "options": [
+                "Integración incremental",
+                "Integración no incremental",
+                "Pruebas unitarias",
+                "Pruebas de carga"
+            ],
+            "answer": "Integración no incremental"
+        },
+        {
+            "question": "¿Qué fase del ciclo de vida de un ERP incluye la capacitación de los empleados?",
+            "options": [
+                "Adopción",
+                "Selección",
+                "Implantación",
+                "Mantenimiento"
+            ],
+            "answer": "Implantación"
+        },
+        {
+            "question": "¿Qué opción es una posible desventaja de una mala implantación de un ERP?",
+            "options": [
+                "Reducción de costes",
+                "Finalización fuera del plazo previsto",
+                "Mayor eficiencia en la empresa",
+                "Integración total con los sistemas existentes"
+            ],
+            "answer": "Finalización fuera del plazo previsto"
+        },
+        {
+            "question": "¿Cuál de los siguientes es un motivo común para reemplazar un ERP?",
+            "options": [
+                "El ERP se ha vuelto obsoleto",
+                "Se han eliminado todas las necesidades empresariales",
+                "No hay necesidad de integración con otros sistemas",
+                "Los empleados prefieren trabajar con hojas de cálculo"
+            ],
+            "answer": "El ERP se ha vuelto obsoleto"
+        },
+        {
+            "question": "¿Qué es el modelo de objetos en Odoo?",
+            "options": [
+                "Un conjunto de informes generados por el ERP",
+                "Una estructura que representa los datos y sus relaciones",
+                "Un sistema de administración de usuarios",
+                "Un tipo de base de datos específica para Odoo"
+            ],
+            "answer": "Una estructura que representa los datos y sus relaciones"
+        },
+        {
+            "question": "¿Qué representa el objeto 'res.partner' en Odoo?",
+            "options": [
+                "Una empresa o cliente",
+                "Un módulo del sistema",
+                "Un informe de ventas",
+                "Un usuario administrador"
+            ],
+            "answer": "Una empresa o cliente"
+        },
+        {
+            "question": "¿Qué elemento de Odoo permite visualizar datos en formato de lista?",
+            "options": [
+                "Vista de formulario",
+                "Vista de árbol",
+                "Vista Kanban",
+                "Vista de calendario"
+            ],
+            "answer": "Vista de árbol"
+        },
+        {
+            "question": "¿Qué tipo de campo en Odoo establece una relación de 'muchos a uno'?",
+            "options": [
+                "One2many",
+                "Many2one",
+                "Many2many",
+                "One2one"
+            ],
+            "answer": "Many2one"
+        },
+        {
+            "question": "¿Dónde se pueden modificar los permisos de acceso en Odoo?",
+            "options": [
+                "Desde el código fuente",
+                "En la configuración de la base de datos",
+                "En los grupos de seguridad",
+                "No se pueden modificar"
+            ],
+            "answer": "En los grupos de seguridad"
+        },
+        {
+            "question": "¿Cómo se crean nuevas vistas en Odoo?",
+            "options": [
+                "A través de código XML",
+                "Desde la base de datos PostgreSQL",
+                "Por medio de hojas de cálculo",
+                "No se pueden modificar"
+            ],
+            "answer": "A través de código XML"
+        },
+        {
+            "question": "¿Qué herramienta de Odoo se usa para la generación de informes personalizados?",
+            "options": [
+                "Kanban",
+                "QWeb",
+                "Tree view",
+                "Excel"
+            ],
+            "answer": "QWeb"
+        },
+        {
+            "question": "¿Qué tipo de vista en Odoo se usa para representar tareas en un tablero visual?",
+            "options": [
+                "Vista de formulario",
+                "Vista de árbol",
+                "Vista Kanban",
+                "Vista de gráfico"
+            ],
+            "answer": "Vista Kanban"
+        },
+        {
+            "question": "¿Cómo se accede a los modelos de datos en Odoo?",
+            "options": [
+                "Desde el menú Técnico -> Modelos",
+                "A través de la consola SQL",
+                "Desde la configuración del usuario",
+                "No se pueden modificar"
+            ],
+            "answer": "Desde el menú Técnico -> Modelos"
+        },
+        {
+            "question": "¿Cuál es una función clave de los tableros en Odoo?",
+            "options": [
+                "Agrupar información de diferentes módulos",
+                "Crear nuevas bases de datos",
+                "Eliminar registros masivamente",
+                "Modificar la estructura de los modelos"
+            ],
+            "answer": "Agrupar información de diferentes módulos"
+        },
+        {
+            "question": "¿Qué elemento en Odoo permite modificar la apariencia de los informes?",
+            "options": [
+                "Vistas QWeb",
+                "Modelo de objetos",
+                "Base de datos PostgreSQL",
+                "Sistema de permisos"
+            ],
+            "answer": "Vistas QWeb"
         }
     ]
 }
