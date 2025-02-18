@@ -751,7 +751,7 @@
             "answer": "Elementos de menú en Ajustes/Técnico"
         },
         {
-            "question": "¿Qué campo en Odoo permite relacionar un vehículo con su propietario (cliente)?",
+            "question": "¿Qué campo en Odoo permite relacionar vehículos con su propietario (cliente)?",
             "options": [
                 "one2one",
                 "many2many",
@@ -2869,6 +2869,1206 @@
                 "Sistema de permisos"
             ],
             "answer": "Vistas QWeb"
+        },
+        {
+            "question": "¿Cuál es la principal razón por la cual una empresa podría optar por modificar su propio proceso interno en lugar de adaptar el ERP a sus necesidades específicas?",
+            "options": [
+                "Reducir los costes de personalización del sistema",
+                "Evitar la estandarización de procesos empresariales",
+                "Incrementar la complejidad del sistema ERP",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Reducir los costes de personalización del sistema"
+        },
+        {
+            "question": "En Odoo, ¿qué tipo de relación se utiliza para establecer que un cliente puede tener varios vehículos, pero cada vehículo solo puede tener un propietario?",
+            "options": [
+                "many2one",
+                "one2many",
+                "many2many",
+                "Todos los anteriores son correctos"
+            ],
+            "answer": "one2many"
+        },
+        {
+            "question": "Durante la fase de implantación de un ERP, ¿qué implica la 'integración incremental' según el ciclo de vida clásico del proyecto?",
+            "options": [
+                "Integrar todos los módulos al mismo tiempo",
+                "Combinar progresivamente nuevos módulos probados con los ya existentes",
+                "Pruebas independientes sin integración entre módulos",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Combinar progresivamente nuevos módulos probados con los ya existentes"
+        },
+        {
+            "question": "En Odoo, si se desea crear un nuevo campo en un modelo existente sin modificar directamente el código fuente, ¿qué mecanismo se debe utilizar?",
+            "options": [
+                "Herencia de vistas mediante XPath",
+                "Creación de un nuevo objeto completamente independiente",
+                "Edición directa del archivo XML del modelo",
+                "Modificación de la base de datos PostgreSQL subyacente"
+            ],
+            "answer": "Herencia de vistas mediante XPath"
+        },
+        {
+            "question": "¿Qué riesgos potenciales pueden surgir durante la implementación de un ERP según el documento?",
+            "options": [
+                "Finalización fuera del plazo previsto",
+                "Sobrepasar el presupuesto asignado al proyecto",
+                "Funcionamiento no esperado de la aplicación",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Cuál es el propósito de los 'permisos de acceso' en Odoo cuando se configuran grupos de usuarios?",
+            "options": [
+                "Definir qué menús y tablas del modelo de datos pueden acceder los usuarios",
+                "Controlar quién puede leer, escribir, crear o eliminar registros en un modelo específico",
+                "Limitar el acceso a ciertos informes personalizados",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "En el contexto de Odoo, ¿qué significa que una vista sea 'heredada'?",
+            "options": [
+                "Una vista que no puede ser modificada ni eliminada",
+                "Una vista que toma elementos de otra vista original sin modificarla",
+                "Una vista que sustituye completamente a otra vista existente",
+                "Una vista estática que no permite cambios dinámicos"
+            ],
+            "answer": "Una vista que toma elementos de otra vista original sin modificarla"
+        },
+        {
+            "question": "¿Cuál es el propósito principal de usar 'XPath' al editar vistas en Odoo?",
+            "options": [
+                "Modificar directamente el código fuente del sistema",
+                "Buscar y seleccionar partes específicas de un archivo XML para realizar cambios controlados",
+                "Crear nuevos objetos desde cero sin necesidad de herencia",
+                "Generar informes automáticos basados en datos del sistema"
+            ],
+            "answer": "Buscar y seleccionar partes específicas de un archivo XML para realizar cambios controlados"
+        },
+        {
+            "question": "¿Qué implica la 'secuencia' en el contexto de vistas heredadas en Odoo?",
+            "options": [
+                "Determina el orden en el que se cargan las vistas asociadas a un modelo",
+                "Define el nivel de jerarquía dentro de una estructura de menús",
+                "Indica el número de campos visibles en una vista específica",
+                "Establece el tiempo de carga de una vista en el sistema"
+            ],
+            "answer": "Determina el orden en el que se cargan las vistas asociadas a un modelo"
+        },
+        {
+            "question": "¿Cuál es el objetivo principal de una auditoría post-implantación de un ERP según el documento?",
+            "options": [
+                "Evaluar si el funcionamiento del sistema cumple con lo acordado inicialmente",
+                "Identificar nuevas funcionalidades que puedan añadirse en el futuro",
+                "Revisar únicamente los costes económicos del proyecto",
+                "Verificar exclusivamente la seguridad de la información"
+            ],
+            "answer": "Evaluar si el funcionamiento del sistema cumple con lo acordado inicialmente"
+        },
+        {
+            "question": "¿Qué atributo se utiliza en un elemento XML para ocultar un campo en una vista de Odoo sin eliminarlo del sistema?",
+            "options": [
+                "hidden='true'",
+                "invisible='1'",
+                "display='none'",
+                "disabled='true'"
+            ],
+            "answer": "invisible='1'"
+        },
+        {
+            "question": "¿Cuál es el impacto de no ajustar correctamente el 'identificador externo' en una vista QWeb al crear un informe personalizado en Odoo?",
+            "options": [
+                "El informe no se mostrará correctamente al intentar visualizarlo",
+                "Se generará un conflicto con otros informes existentes",
+                "La vista no podrá ser editada posteriormente",
+                "No habrá ningún impacto relevante"
+            ],
+            "answer": "El informe no se mostrará correctamente al intentar visualizarlo"
+        },
+        {
+            "question": "En el diseño de un tablero personalizado en Odoo, ¿qué operaciones pueden realizarse para mejorar su usabilidad?",
+            "options": [
+                "Añadir múltiples vistas (Kanban, árbol, formulario) relacionadas con un mismo modelo",
+                "Reorganizar los elementos del tablero arrastrándolos",
+                "Cambiar el diseño general del tablero seleccionando plantillas predeterminadas",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué diferencia fundamental existe entre las relaciones 'many2one' y 'one2many' en Odoo?",
+            "options": [
+                "many2one se utiliza para relaciones uno-a-uno, mientras que one2many para muchos-a-muchos",
+                "many2one indica que un registro pertenece a otro, mientras que one2many indica que un registro tiene múltiples referencias",
+                "many2one se usa exclusivamente para informes, mientras que one2many para vistas",
+                "No hay diferencia práctica entre ambas relaciones"
+            ],
+            "answer": "many2one indica que un registro pertenece a otro, mientras que one2many indica que un registro tiene múltiples referencias"
+        },
+        {
+            "question": "¿Qué característica distingue a una vista 'dinámica' frente a una vista 'estática' en Odoo?",
+            "options": [
+                "Las vistas dinámicas permiten modificaciones por parte del usuario final",
+                "Las vistas estáticas requieren programación adicional para cualquier cambio",
+                "Las vistas dinámicas están definidas en XML y pueden ser modificadas sin alterar el código fuente",
+                "Ambas A y C son correctas"
+            ],
+            "answer": "Ambas A y C son correctas"
+        },
+        {
+            "question": "¿Qué implica la utilización de 'QWeb' en la creación de informes personalizados en Odoo?",
+            "options": [
+                "Permite definir informes utilizando lenguajes de marcado como XML y HTML",
+                "Facilita la inclusión de iteraciones y condicionales dentro del informe",
+                "Requiere la configuración previa de identificadores externos para su correcto funcionamiento",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué consecuencia tiene la incorrecta selección de un ERP durante la fase de evaluación inicial?",
+            "options": [
+                "Incremento significativo en los costes de personalización",
+                "Problemas de integración con sistemas existentes",
+                "Mayor probabilidad de fracaso en la implantación del sistema",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué función cumplen los 'grupos de usuarios' en el control de acceso en Odoo?",
+            "options": [
+                "Asignar permisos específicos a conjuntos de usuarios con roles similares",
+                "Restringir el acceso a ciertas áreas del sistema basándose en funciones organizacionales",
+                "Facilitar la gestión masiva de derechos de acceso",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Cuál es el propósito principal del atributo 'invisible' cuando se edita una vista en Odoo?",
+            "options": [
+                "Ocultar elementos específicos de la interfaz sin eliminarlos del código",
+                "Hacer que los campos sean obligatorios en la vista",
+                "Mostrar mensajes de advertencia al usuario",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Ocultar elementos específicos de la interfaz sin eliminarlos del código"
+        },
+        {
+            "question": "En el contexto de la herencia de vistas en Odoo, ¿qué función cumple el atributo 'expr' dentro de la etiqueta XPath?",
+            "options": [
+                "Definir la posición donde se insertará el nuevo código",
+                "Especificar la ruta XML del elemento que se desea modificar",
+                "Establecer el tipo de vista que se está modificando",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Especificar la ruta XML del elemento que se desea modificar"
+        },
+        {
+            "question": "¿Qué ocurre si no se configura correctamente el identificador externo(ID externo) en una vista QWeb personalizada en Odoo?",
+            "options": [
+                "La vista no se mostrará en el sistema",
+                "Se generará un error durante la creación del informe asociado",
+                "El sistema asignará automáticamente un ID externo aleatorio",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Se generará un error durante la creación del informe asociado"
+        },
+        {
+            "question": "¿Cuál es el impacto de establecer una secuencia menor(0) en una vista heredada respecto a la vista original en Odoo?",
+            "options": [
+                "La vista heredada tendrá prioridad sobre la vista original",
+                "La vista original será eliminada automáticamente",
+                "No habrá ningún cambio visible en el sistema",
+                "Ambas vistas serán mostradas simultáneamente"
+            ],
+            "answer": "La vista heredada tendrá prioridad sobre la vista original"
+        },
+        {
+            "question": "¿Qué consecuencia tiene crear un campo con el prefijo 'x_' en un modelo personalizado en Odoo?",
+            "options": [
+                "Indica que el campo es creado por el usuario y no forma parte del núcleo del sistema",
+                "El campo será automáticamente oculto en todas las vistas",
+                "El campo solo será visible para usuarios con permisos administrativos",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Indica que el campo es creado por el usuario y no forma parte del núcleo del sistema"
+        },
+        {
+            "question": "En Odoo, ¿qué diferencia fundamental existe entre una relación 'many2one' y 'one2many'?",
+            "options": [
+                "many2one permite múltiples relaciones hacia un mismo registro, mientras que one2many no",
+                "one2many se utiliza para relacionar varios registros con uno, mientras que many2one relaciona un registro con otro único",
+                "many2one solo puede usarse en modelos predefinidos, mientras que one2many es para modelos personalizados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "one2many se utiliza para relacionar varios registros con uno, mientras que many2one relaciona un registro con otro único"
+        },
+        {
+            "question": "¿Qué riesgo específico se menciona en el documento al modificar directamente un grupo predeterminado en Odoo?",
+            "options": [
+                "Las actualizaciones del sistema pueden revertir los cambios realizados",
+                "Los permisos de acceso podrían volverse inestables",
+                "Los usuarios perderán sus credenciales actuales",
+                "Ninguno de los anteriores es un riesgo mencionado"
+            ],
+            "answer": "Las actualizaciones del sistema pueden revertir los cambios realizados"
+        },
+        {
+            "question": "¿Cuál es el propósito de las 'acciones de ventana' en Odoo cuando se crea un menú personalizado?",
+            "options": [
+                "Asociar una vista específica a un menú determinado",
+                "Permitir la edición masiva de registros desde un menú",
+                "Controlar el acceso a ciertos módulos del sistema",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Asociar una vista específica a un menú determinado"
+        },
+        {
+            "question": "¿Qué implica la fase de 'producción y soporte' en el ciclo de vida de un proyecto ERP según el documento?",
+            "options": [
+                "Realizar ajustes menores al sistema para corregir errores o cumplir nuevas necesidades",
+                "Continuar con la formación inicial de los usuarios finales",
+                "Migrar datos adicionales al sistema ya implementado",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Realizar ajustes menores al sistema para corregir errores o cumplir nuevas necesidades"
+        },
+        {
+            "question": "En el proceso de creación de un informe personalizado en Odoo, ¿qué papel juega el atributo 't-field' en las plantillas QWeb?",
+            "options": [
+                "Define el campo del modelo que se mostrará en el informe",
+                "Establece el diseño gráfico del informe",
+                "Controla el acceso de los usuarios al informe",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Define el campo del modelo que se mostrará en el informe"
+        },
+        {
+            "question": "¿Por qué es importante utilizar el modo desarrollador al modificar vistas en Odoo?",
+            "options": [
+                "Proporciona acceso a herramientas avanzadas para editar vistas y estructuras del sistema",
+                "Evita que los usuarios finales vean los cambios mientras se realizan",
+                "Permite realizar cambios sin afectar la base de datos subyacente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Proporciona acceso a herramientas avanzadas para editar vistas y estructuras del sistema"
+        },
+        {
+            "question": "¿Qué característica distingue a una vista dinámica de una vista estática en Odoo?",
+            "options": [
+                "Una vista dinámica puede ser modificada por los usuarios finales sin alterar el código fuente",
+                "Una vista estática siempre está vinculada a un único modelo de datos",
+                "Una vista dinámica requiere menos recursos computacionales",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Una vista dinámica puede ser modificada por los usuarios finales sin alterar el código fuente"
+        },
+        {
+            "question": "¿Qué desafío técnico se menciona en el documento al intentar eliminar un campo de un modelo existente en Odoo?",
+            "options": [
+                "El campo puede estar siendo utilizado por múltiples módulos, lo que podría causar errores",
+                "La eliminación de campos no es posible en Odoo",
+                "Los cambios pueden revertirse automáticamente durante las actualizaciones del sistema",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El campo puede estar siendo utilizado por múltiples módulos, lo que podría causar errores"
+        },
+        {
+            "question": "¿Cuál es el propósito de las 'secuencias' en las acciones de ventana dentro de Odoo?",
+            "options": [
+                "Determinar el orden en el que se muestran las vistas asociadas a un menú",
+                "Establecer prioridades en la carga de módulos del sistema",
+                "Controlar el nivel de acceso de los usuarios a ciertas vistas",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Determinar el orden en el que se muestran las vistas asociadas a un menú"
+        },
+        {
+            "question": "¿Qué significa que un tablero en Odoo sea una 'vista compuesta' según el documento?",
+            "options": [
+                "Es una combinación de varias vistas simples agrupadas en un solo interfaz",
+                "Solo muestra información en tiempo real desde una única vista",
+                "Requiere programación avanzada para su creación",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Es una combinación de varias vistas simples agrupadas en un solo interfaz"
+        },
+        {
+            "question": "¿Qué problema técnico se describe en el documento al trabajar con informes personalizados en Odoo?",
+            "options": [
+                "Es necesario configurar correctamente el identificador externo para evitar errores al generar el informe",
+                "Los informes personalizados no pueden incluir iteraciones ni condicionales",
+                "La traducción automática de campos puede generar inconsistencias en los informes",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Es necesario configurar correctamente el identificador externo para evitar errores al generar el informe"
+        },
+        {
+            "question": "¿Cuál es la principal desventaja de modificar un grupo predeterminado en Odoo según el documento?",
+            "options": [
+                "El sistema puede eliminar los cambios al realizar una actualización",
+                "Se pierden las relaciones entre los objetos del sistema",
+                "Los usuarios no pueden acceder a las vistas modificadas",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El sistema puede eliminar los cambios al realizar una actualización"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se omite configurar el identificador externo(ID externo) al crear un informe personalizado?",
+            "options": [
+                "El informe no se mostrará en la interfaz de usuario",
+                "Se genera un error al intentar imprimir el informe",
+                "El sistema automáticamente asigna un ID externo aleatorio",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Se genera un error al intentar imprimir el informe"
+        },
+        {
+            "question": "¿Qué diferencia hay entre una vista estática y una vista dinámica en Odoo según el documento?",
+            "options": [
+                "Una vista estática no puede ser modificada por los usuarios finales, mientras que una dinámica sí",
+                "Una vista estática se almacena directamente en el código fuente, mientras que una dinámica utiliza XML para su definición",
+                "Una vista dinámica permite más flexibilidad y personalización sin necesidad de programación",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "¿Qué implica el atributo 'expr' en una expresión XPath al editar una vista heredada en Odoo?",
+            "options": [
+                "Define la posición donde se insertará el nuevo código",
+                "Especifica la ruta XML del elemento que se desea modificar",
+                "Indica el tipo de vista que se está editando",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Especifica la ruta XML del elemento que se desea modificar"
+        },
+        {
+            "question": "En el contexto de Odoo, ¿qué consecuencia tiene establecer la secuencia de una vista heredada como 0?",
+            "options": [
+                "La vista heredada tendrá prioridad sobre la vista original",
+                "La vista original será eliminada automáticamente",
+                "La vista heredada no será visible para los usuarios",
+                "No habrá ningún cambio visible en la interfaz de usuario"
+            ],
+            "answer": "La vista heredada tendrá prioridad sobre la vista original"
+        },
+        {
+            "question": "¿Cuál es el propósito del atributo 'invisible' en un elemento XML al modificar vistas en Odoo?",
+            "options": [
+                "Ocultar elementos específicos de la interfaz sin eliminarlos del sistema",
+                "Hacer que los campos sean obligatorios en la vista",
+                "Mostrar mensajes de advertencia al usuario",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Ocultar elementos específicos de la interfaz sin eliminarlos del sistema"
+        },
+        {
+            "question": "¿Qué riesgos potenciales se mencionan en el documento durante la fase de implantación de un ERP?",
+            "options": [
+                "Finalización fuera del plazo previsto",
+                "Sobrepasar el presupuesto asignado al proyecto",
+                "Funcionamiento inesperado de la aplicación",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿cómo se resuelven las traducciones automáticas en los informes personalizados?",
+            "options": [
+                "Utilizando etiquetas span con condicionales",
+                "A través de la propiedad t-field en combinación con el idioma seleccionado",
+                "Con la inclusión de múltiples plantillas para cada idioma",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "A través de la propiedad t-field en combinación con el idioma seleccionado"
+        },
+        {
+            "question": "¿Qué significa que una vista sea heredada en Odoo?",
+            "options": [
+                "Es una copia exacta de otra vista existente",
+                "Permite modificar una vista existente sin alterarla directamente",
+                "Se utiliza únicamente para vistas de tipo formulario",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Permite modificar una vista existente sin alterarla directamente"
+        },
+        {
+            "question": "En el modelo relacional de Odoo, ¿cuál es la diferencia fundamental entre una relación 'many2one' y 'one2many'?",
+            "options": [
+                "many2one define una relación uno-a-muchos desde el lado 'muchos', mientras que one2many lo hace desde el lado 'uno'",
+                "many2one solo se utiliza para relaciones internas, mientras que one2many para relaciones externas",
+                "one2many requiere siempre un campo intermedio adicional",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "many2one define una relación uno-a-muchos desde el lado 'muchos', mientras que one2many lo hace desde el lado 'uno'"
+        },
+        {
+            "question": "¿Qué implica el uso del lenguaje QWeb en la creación de informes personalizados en Odoo?",
+            "options": [
+                "Permite diseñar informes utilizando iteraciones y condicionales",
+                "Requiere conocimientos avanzados de HTML y CSS",
+                "Los informes creados con QWeb no pueden ser modificados posteriormente",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Permite diseñar informes utilizando iteraciones y condicionales"
+        },
+        {
+            "question": "¿Qué característica distingue a una acción de ventana en Odoo?",
+            "options": [
+                "Asocia una entrada de menú con su vista correspondiente",
+                "Solo puede ser utilizada por usuarios administradores",
+                "Se utiliza exclusivamente para vistas de tipo Kanban",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Asocia una entrada de menú con su vista correspondiente"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se elimina un campo de un objeto existente?",
+            "options": [
+                "Puede causar problemas en otros módulos que dependen de ese campo",
+                "El sistema bloquea automáticamente la eliminación de campos esenciales",
+                "Los datos almacenados en ese campo se pierden permanentemente",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Puede causar problemas en otros módulos que dependen de ese campo"
+        },
+        {
+            "question": "¿Qué ventajas ofrece adaptar los procesos de la empresa al ERP en lugar de personalizar el ERP según el documento?",
+            "options": [
+                "Disminuye el tiempo de implantación",
+                "Facilita las futuras migraciones a nuevas versiones del ERP",
+                "Evita la automatización de posibles malas prácticas empresariales",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué pasa si una entrada de menú no está asociada a ningún grupo?",
+            "options": [
+                "Es visible para todos los usuarios del sistema",
+                "Solo es visible para los usuarios administradores",
+                "No aparece en la interfaz de usuario",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Es visible para todos los usuarios del sistema"
+        },
+        {
+            "question": "¿Qué se debe hacer para evitar que una actualización del sistema elimine un campo personalizado en Odoo?",
+            "options": [
+                "Crear el campo en una nueva entidad personalizada",
+                "Usar el prefijo x_ para identificar campos personalizados",
+                "Implementar el campo mediante herencia de vistas",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué implica el uso de permisos de acceso en Odoo para un objeto específico?",
+            "options": [
+                "Controla quién puede leer, escribir, crear o eliminar registros del objeto",
+                "Restringe el acceso a ciertas vistas relacionadas con el objeto",
+                "Define qué menús están disponibles para los usuarios que interactúan con el objeto",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En el proceso de creación de un tablero personalizado en Odoo, ¿qué operación es posible realizar?",
+            "options": [
+                "Añadir vistas existentes al tablero",
+                "Modificar el diseño del tablero arrastrando y soltando elementos",
+                "Crear nuevas vistas específicamente para el tablero",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué se debe considerar al crear una relación many2many entre dos modelos en Odoo?",
+            "options": [
+                "Ambos modelos deben tener campos specifically definidos para la relación",
+                "Se crea una tabla intermedia para gestionar la relación",
+                "La relación puede generar conflictos si no se configura correctamente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se modifica una vista base directamente en lugar de crear una vista heredada?",
+            "options": [
+                "Las actualizaciones del sistema pueden revertir los cambios realizados",
+                "Otros desarrolladores no podrán colaborar en la misma vista",
+                "La vista modificada pierde funcionalidades avanzadas",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Las actualizaciones del sistema pueden revertir los cambios realizados"
+        },
+        {
+            "question": "¿Qué objetivo tiene la auditoría post-implantación de un sistema ERP según el documento?",
+            "options": [
+                "Evaluar si el sistema cumple con los requisitos acordados",
+                "Comparar los costes reales con los planificados",
+                "Identificar áreas de mejora en los procesos empresariales",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué efecto tiene establecer la propiedad 'required' en un campo al momento de crear un nuevo modelo?",
+            "options": [
+                "El campo se vuelve obligatorio para todos los registros del modelo",
+                "Se genera una validación automática para asegurar que el campo no esté vacío",
+                "El campo no puede ser eliminado ni modificado después de su creación",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "El campo se vuelve obligatorio para todos los registros del modelo"
+        },
+        {
+            "question": "¿Qué implica el uso de 'secuencias' en las acciones de ventana en Odoo?",
+            "options": [
+                "Determina el orden en el que se muestran las vistas asociadas",
+                "Define la prioridad de ejecución de las acciones",
+                "Controla el nivel de acceso a las acciones por parte de los usuarios",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Determina el orden en el que se muestran las vistas asociadas"
+        },
+        {
+            "question": "¿Qué ocurre si se omite configurar el ID externo en una vista QWeb al crear un informe personalizado en Odoo?",
+            "options": [
+                "El informe no se mostrará en la interfaz de usuario",
+                "Se generará un error durante la creación del informe",
+                "El sistema asignará automáticamente un ID externo aleatorio",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Se generará un error durante la creación del informe"
+        },
+        {
+            "question": "¿Cuál es el propósito principal de los 'permisos de acceso' en Odoo cuando se configuran grupos de usuarios?",
+            "options": [
+                "Definir qué menús y tablas del modelo de datos pueden acceder los usuarios",
+                "Controlar quién puede leer, escribir, crear o eliminar registros en un modelo específico",
+                "Limitar el acceso a ciertos informes personalizados",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué implica establecer la secuencia de una vista heredada como 0 respecto a la vista original?",
+            "options": [
+                "La vista heredada tendrá prioridad sobre la vista original",
+                "La vista original será eliminada automáticamente",
+                "La vista heredada solo será visible para usuarios administradores",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "La vista heredada tendrá prioridad sobre la vista original"
+        },
+        {
+            "question": "¿Qué riesgos específicos se mencionan en el documento durante la fase de implantación de un ERP?",
+            "options": [
+                "Finalización fuera del plazo previsto",
+                "Sobrepasar el presupuesto asignado al proyecto",
+                "Funcionamiento inesperado de la aplicación",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué característica define a una vista dinámica en comparación con una vista estática en Odoo?",
+            "options": [
+                "Una vista dinámica puede ser modificada por parte del usuario sin necesidad de programación",
+                "Una vista estática se almacena directamente en el código fuente y no puede ser alterada",
+                "Una vista dinámica utiliza XML para describir su estructura y permitir cambios",
+                "Ambas A y C son correctas"
+            ],
+            "answer": "Ambas A y C son correctas"
+        },
+        {
+            "question": "¿Cuál es el impacto de establecer incorrectamente el atributo 'invisible' en un elemento de una vista en Odoo?",
+            "options": [
+                "El elemento seguirá siendo visible para todos los usuarios",
+                "El elemento será ocultado correctamente pero causará errores en otras vistas heredadas",
+                "No habrá ningún impacto visible en la interfaz de usuario",
+                "El elemento será ocultado sin afectar otras partes del sistema"
+            ],
+            "answer": "El elemento será ocultado correctamente pero causará errores en otras vistas heredadas"
+        },
+        {
+            "question": "En Odoo, ¿qué diferencia fundamental existe entre una relación 'many2one' y 'one2many'?",
+            "options": [
+                "many2one permite relacionar múltiples registros con uno, mientras que one2many lo hace al revés",
+                "many2one se utiliza para relaciones de uno-a-uno, mientras que one2many para muchos-a-muchos",
+                "one2many crea automáticamente una tabla intermedia en la base de datos",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "many2one permite relacionar múltiples registros con uno, mientras que one2many lo hace al revés"
+        },
+        {
+            "question": "¿Qué tipo de relación se utiliza en Odoo para establecer que un cliente puede tener varios vehículos, pero cada vehículo solo puede tener un propietario?",
+            "options": [
+                "many2one",
+                "one2many",
+                "many2many",
+                "Todos los anteriores son correctos"
+            ],
+            "answer": "one2many"
+        },
+        {
+            "question": "¿Cuál es el objetivo principal de una auditoría post-implantación de un sistema ERP según el documento?",
+            "options": [
+                "Evaluar si el funcionamiento del sistema cumple con lo acordado inicialmente",
+                "Identificar nuevas funcionalidades que puedan añadirse en el futuro",
+                "Revisar únicamente los costes económicos del proyecto",
+                "Verificar exclusivamente la seguridad de la información"
+            ],
+            "answer": "Evaluar si el funcionamiento del sistema cumple con lo acordado inicialmente"
+        },
+        {
+            "question": "¿Qué consecuencia tiene no ajustar correctamente el identificador externo(ID externo) al crear una acción de ventana en Odoo?",
+            "options": [
+                "La acción de ventana no se asociará correctamente con las vistas seleccionadas",
+                "La acción de ventana no podrá ser utilizada por los usuarios finales",
+                "No habrá ningún impacto relevante en el sistema",
+                "Se generará un error durante la migración de datos"
+            ],
+            "answer": "La acción de ventana no se asociará correctamente con las vistas seleccionadas"
+        },
+        {
+            "question": "¿Qué se debe hacer para evitar problemas durante las actualizaciones del sistema al modificar vistas existentes en Odoo?",
+            "options": [
+                "Editar directamente la vista original",
+                "Crear una nueva vista heredada",
+                "Eliminar la vista original y crear una nueva desde cero",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Crear una nueva vista heredada"
+        },
+        {
+            "question": "¿Cuál es el propósito de los 'permisos de acceso' en Odoo cuando se definen reglas para un objeto específico?",
+            "options": [
+                "Determinar qué usuarios pueden realizar operaciones CRUD(lectura, escritura, creación, eliminación) sobre ese objeto",
+                "Restringir el acceso a ciertas vistas asociadas al objeto",
+                "Controlar quién puede ver los datos en tiempo real",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "¿Qué significa que una vista sea 'heredada' en Odoo?",
+            "options": [
+                "Es una copia exacta de otra vista existente",
+                "Permite modificar una vista existente sin alterarla directamente",
+                "Solo puede ser utilizada por usuarios con permisos administrativos",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Permite modificar una vista existente sin alterarla directamente"
+        },
+        {
+            "question": "¿Qué ocurre si un usuario no pertenece a ningún grupo en Odoo?",
+            "options": [
+                "No puede acceder a ningún menú ni dato",
+                "Tiene acceso limitado a ciertos datos básicos",
+                "Puede acceder a todos los menús y datos",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "No puede acceder a ningún menú ni dato"
+        },
+        {
+            "question": "¿Qué se debe considerar al crear una nueva entidad(objeto) en Odoo?",
+            "options": [
+                "Incluir un prefijo en el nombre de la entidad para distinguirla de las predeterminadas",
+                "Definir las relaciones con otros objetos utilizando tipos de datos específicos",
+                "Asegurar que los campos obligatorios están correctamente configurados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué método se recomienda para modificar una vista sin afectar vistas heredadas en Odoo?",
+            "options": [
+                "Modificar directamente la vista original",
+                "Crear una nueva vista heredada y aplicar los cambios allí",
+                "Duplicar la vista original y realizar los cambios en la copia",
+                "Eliminar la vista original y recrearla desde cero"
+            ],
+            "answer": "Crear una nueva vista heredada y aplicar los cambios allí"
+        },
+        {
+            "question": "¿Cuál es el impacto principal de no configurar correctamente los permisos de acceso en una relación many2many entre dos modelos en Odoo?",
+            "options": [
+                "Los usuarios podrán ver datos que no les corresponden",
+                "Se generará un error al intentar guardar registros relacionados",
+                "La relación no será visible en las vistas asociadas",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Los usuarios podrán ver datos que no les corresponden"
+        },
+        {
+            "question": "En el contexto de Odoo, ¿qué ocurre si se elimina un campo de tipo one2many sin tener en cuenta su uso en otros módulos?",
+            "options": [
+                "El sistema puede generar errores al acceder a los módulos afectados",
+                "Los datos relacionados con ese campo se eliminan automáticamente",
+                "La relación se convierte implícitamente en many2one",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El sistema puede generar errores al acceder a los módulos afectados"
+        },
+        {
+            "question": "¿Qué consecuencia tiene establecer incorrectamente el ID externo(ID externo) en una vista QWeb personalizada en Odoo?",
+            "options": [
+                "La vista no podrá ser reconocida por el sistema",
+                "Otras vistas heredadas de esta pueden dejar de funcionar",
+                "El sistema asignará automáticamente un nuevo ID externo",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "La vista no podrá ser reconocida por el sistema"
+        },
+        {
+            "question": "¿Qué diferencia fundamental existe entre una acción de ventana(Action Window) y una vista en Odoo?",
+            "options": [
+                "Una acción de ventana define qué vistas se mostrarán para un modelo específico, mientras que una vista describe cómo se presenta la información",
+                "Una acción de ventana solo puede estar asociada a un menú, mientras que una vista puede estar asociada a múltiples menús",
+                "Una vista puede ser modificada dinámicamente por los usuarios, mientras que una acción de ventana no",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Una acción de ventana define qué vistas se mostrarán para un modelo específico, mientras que una vista describe cómo se presenta la información"
+        },
+        {
+            "question": "¿Qué riesgo técnico implica modificar directamente un grupo predeterminado en lugar de crear uno nuevo en Odoo?",
+            "options": [
+                "Las actualizaciones del sistema pueden revertir los cambios realizados",
+                "Otros grupos heredados de este pueden perder funcionalidades",
+                "Los permisos de los usuarios pueden quedar desconfigurados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Las actualizaciones del sistema pueden revertir los cambios realizados"
+        },
+        {
+            "question": "¿Cuál es el propósito principal del atributo 'position' en una expresión XPath al editar una vista heredada en Odoo?",
+            "options": [
+                "Definir dónde se insertará o modificará el código XML",
+                "Especificar la posición dentro de la jerarquía de elementos XML",
+                "Establecer el orden de visualización de los campos en la vista",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Definir dónde se insertará o modificará el código XML"
+        },
+        {
+            "question": "¿Qué efecto tiene establecer la secuencia de una vista heredada como 0 respecto a la vista original en Odoo?",
+            "options": [
+                "La vista heredada tendrá prioridad sobre la vista original",
+                "La vista original quedará deshabilitada automáticamente",
+                "La vista heredada se fusionará con la vista original",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "La vista heredada tendrá prioridad sobre la vista original"
+        },
+        {
+            "question": "En el diseño de un informe personalizado en Odoo utilizando QWeb, ¿qué consecuencia tiene no ajustar correctamente el identificador externo(ID externo)?",
+            "options": [
+                "El informe no podrá ser generado correctamente",
+                "El sistema asignará automáticamente un nuevo ID externo",
+                "El informe aparecerá duplicado en la lista de informes disponibles",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El informe no podrá ser generado correctamente"
+        },
+        {
+            "question": "¿Qué característica distingue a una vista Kanban frente a una vista de formulario en Odoo?",
+            "options": [
+                "La vista Kanban permite organizar los datos en columnas basadas en estados",
+                "La vista de formulario está diseñada para mostrar detalles completos de un registro",
+                "La vista Kanban no permite la edición directa de los datos",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "¿Cuál es el impacto de no configurar adecuadamente los permisos de escritura en un objeto personalizado en Odoo?",
+            "options": [
+                "Los usuarios no podrán crear ni modificar registros en ese objeto",
+                "Los datos existentes en el objeto pueden volverse inaccesibles",
+                "El sistema bloqueará automáticamente el acceso a ese objeto",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Los usuarios no podrán crear ni modificar registros en ese objeto"
+        },
+        {
+            "question": "¿Qué implica utilizar el atributo 'invisible' en un elemento XML al modificar una vista en Odoo?",
+            "options": [
+                "Ocultar el elemento sin eliminarlo del sistema",
+                "Hacer que el elemento sea obligatorio en la vista",
+                "Mostrar mensajes de advertencia al usuario",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Ocultar el elemento sin eliminarlo del sistema"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se modifica una vista base sin usar herencia y luego se realiza una actualización del sistema?",
+            "options": [
+                "Los cambios realizados en la vista base pueden ser sobrescritos por la actualización",
+                "La vista heredada automáticamente adoptará los cambios realizados",
+                "La vista modificada quedará desvinculada del sistema",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Los cambios realizados en la vista base pueden ser sobrescritos por la actualización"
+        },
+        {
+            "question": "¿Qué diferencias técnicas existen entre una relación many2one y one2many en Odoo?",
+            "options": [
+                "many2one define una relación desde un lado hacia muchos, mientras que one2many define una relación desde muchos hacia un lado",
+                "many2one se utiliza para relaciones simples, mientras que one2many se usa para relaciones complejas",
+                "one2many crea automáticamente una tabla intermedia en la base de datos",
+                "Ambas A y C son correctas"
+            ],
+            "answer": "Ambas A y C son correctas"
+        },
+        {
+            "question": "¿Qué riesgos potenciales se mencionan en el documento durante la fase de implantación de un ERP?",
+            "options": [
+                "Finalización fuera del plazo previsto",
+                "Sobrepasar el presupuesto asignado al proyecto",
+                "Funcionamiento inesperado de la aplicación",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué implica el uso de traducciones automáticas en los informes personalizados en Odoo?",
+            "options": [
+                "Los nombres de campos y etiquetas se adaptan automáticamente al idioma seleccionado",
+                "Es necesario configurar manualmente cada traducción para cada idioma",
+                "Las traducciones automáticas pueden generar inconsistencias si no están bien definidas",
+                "Ambas A y C son correctas"
+            ],
+            "answer": "Ambas A y C son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se omite configurar el identificador externo(ID externo) en una acción de ventana personalizada?",
+            "options": [
+                "La acción de ventana no podrá ser utilizada por los menús",
+                "El sistema asignará automáticamente un nuevo ID externo",
+                "Los usuarios no podrán acceder a la acción desde la interfaz",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "La acción de ventana no podrá ser utilizada por los menús"
+        },
+        {
+            "question": "¿Qué consecuencia tiene no establecer correctamente la relación entre objetos al crear un modelo personalizado en Odoo?",
+            "options": [
+                "Los datos relacionados pueden quedar incompletos o inconsistentes",
+                "Las vistas asociadas al modelo pueden mostrar errores",
+                "El modelo puede quedar desvinculado de otras entidades del sistema",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Cuál es el propósito principal de las acciones de ventana(Action Windows) en Odoo?",
+            "options": [
+                "Asociar una entrada de menú con sus vistas correspondientes",
+                "Permitir la creación de nuevas vistas dinámicas",
+                "Controlar el acceso a ciertos módulos del sistema",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Asociar una entrada de menú con sus vistas correspondientes"
+        },
+        {
+            "question": "¿Qué problema técnico se describe en el documento al trabajar con tableros personalizados en Odoo?",
+            "options": [
+                "Si no se configuran correctamente, pueden mostrar datos irrelevantes",
+                "Los cambios en los tableros pueden afectar a otras vistas asociadas",
+                "La falta de permisos adecuados puede hacer que los tableros no sean visibles para los usuarios",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se define incorrectamente la relación entre un campo many2many y otro modelo?",
+            "options": [
+                "Se generará un error al intentar guardar registros relacionados",
+                "La relación no se mostrará en las vistas asociadas",
+                "La tabla intermedia necesaria para la relación no se creará correctamente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué implicaciones tiene establecer un campo como 'requerido' en un modelo personalizado en Odoo?",
+            "options": [
+                "El campo deberá ser completado obligatoriamente al crear un nuevo registro",
+                "Los formularios asociados mostrarán un mensaje de error si el campo no es completado",
+                "La validación del campo se realizará tanto en cliente como en servidor",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué diferencia técnica hay entre una vista estática y una vista dinámica en Odoo?",
+            "options": [
+                "Una vista estática está codificada directamente en el sistema y no puede ser modificada",
+                "Una vista dinámica permite modificaciones mediante interfaces gráficas o archivos XML",
+                "Las vistas estáticas no requieren permisos especiales para ser editadas",
+                "Ambas A y B son correctas"
+            ],
+            "answer": "Ambas A y B son correctas"
+        },
+        {
+            "question": "¿Qué riesgos potenciales se mencionan en el documento al adaptar un ERP a los procesos actuales de una empresa?",
+            "options": [
+                "Automatización de malas prácticas empresariales",
+                "Incremento del tiempo de implantación del sistema",
+                "Dificultades en futuras migraciones a versiones mejoradas del ERP",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se intenta eliminar un campo de un modelo que está siendo utilizado por otros módulos?",
+            "options": [
+                "Se generará un error al intentar guardar cambios en esos módulos",
+                "Los datos relacionados con ese campo pueden volverse inaccesibles",
+                "El sistema bloqueará automáticamente la eliminación del campo",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué implica el uso de XPath al editar una vista heredada en Odoo?",
+            "options": [
+                "Permite localizar y modificar partes específicas de la vista original",
+                "Facilita la inserción de nuevos elementos sin alterar la vista base",
+                "Puede causar incompatibilidades si no se utiliza correctamente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Qué consecuencia tiene no configurar correctamente los permisos de lectura en un modelo personalizado en Odoo?",
+            "options": [
+                "Los usuarios no podrán ver los datos del modelo",
+                "Las vistas asociadas al modelo pueden mostrar errores",
+                "El sistema bloqueará automáticamente el acceso al modelo",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Cuál es la principal consecuencia de no configurar correctamente el ID externo(ID externo) al crear una vista QWeb personalizada en Odoo?",
+            "options": [
+                "La vista no se mostrará en la interfaz de usuario",
+                "El sistema asignará automáticamente un nuevo ID externo",
+                "Se generará un error durante la creación o edición de registros relacionados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Se generará un error durante la creación o edición de registros relacionados"
+        },
+        {
+            "question": "En el contexto de Odoo, ¿qué ocurre si se elimina un campo heredado de una vista original sin usar el atributo 'invisible'?",
+            "options": [
+                "Las vistas heredadas que dependen de ese campo dejarán de funcionar",
+                "El sistema generará un error al intentar acceder a esa vista",
+                "La eliminación será revertida automáticamente durante la próxima actualización",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Las vistas heredadas que dependen de ese campo dejarán de funcionar"
+        },
+        {
+            "question": "¿Qué implica establecer la secuencia de una vista heredada como 0 respecto a la vista original en Odoo?",
+            "options": [
+                "La vista heredada tendrá prioridad sobre la vista original",
+                "La vista original quedará deshabilitada automáticamente",
+                "La vista heredada solo será visible para usuarios administradores",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "La vista heredada tendrá prioridad sobre la vista original"
+        },
+        {
+            "question": "¿Cuál es el impacto técnico de no ajustar los permisos de acceso en un grupo personalizado en Odoo?",
+            "options": [
+                "Los usuarios podrían acceder a datos que no les corresponden",
+                "El sistema bloqueará automáticamente el acceso a ciertas funcionalidades",
+                "Los permisos predeterminados serán aplicados automáticamente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Los usuarios podrían acceder a datos que no les corresponden"
+        },
+        {
+            "question": "En Odoo, ¿qué sucede si se modifica incorrectamente una acción de ventana asociada a un menú personalizado?",
+            "options": [
+                "El menú no aparecerá en la interfaz de usuario",
+                "El sistema generará un error al intentar cargar el menú",
+                "El menú cargará una vista vacía o incorrecta",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El menú cargará una vista vacía o incorrecta"
+        },
+        {
+            "question": "¿Qué riesgo técnico existe al modificar directamente un objeto base en lugar de crear uno nuevo en Odoo?",
+            "options": [
+                "Las actualizaciones futuras pueden eliminar los cambios realizados",
+                "Otros módulos que dependan de ese objeto podrían verse afectados",
+                "El modelo relacional subyacente puede quedar inconsistente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En el proceso de creación de relaciones entre objetos en Odoo, ¿qué ocurre si se define incorrectamente un campo many2many?",
+            "options": [
+                "Se crea una tabla intermedia con errores estructurales",
+                "Los datos relacionados no se sincronizan correctamente",
+                "La relación no será bidireccional como debería",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Se crea una tabla intermedia con errores estructurales"
+        },
+        {
+            "question": "¿Qué implica utilizar el atributo 't-call' en una plantilla QWeb al crear un informe personalizado en Odoo?",
+            "options": [
+                "Permite llamar a otras plantillas predefinidas para reutilizar código",
+                "Define el tipo de salida del informe(PDF, HTML, etc.)",
+                "Establece el modelo de datos sobre el cual actúa el informe",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Permite llamar a otras plantillas predefinidas para reutilizar código"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se omite configurar correctamente los permisos de escritura en un objeto personalizado?",
+            "options": [
+                "Los usuarios no podrán crear ni editar registros en ese objeto",
+                "Los campos requeridos no serán validados correctamente",
+                "El sistema generará errores al intentar guardar cambios",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Los usuarios no podrán crear ni editar registros en ese objeto"
+        },
+        {
+            "question": "¿Cuál es el propósito principal del uso de XPath en la edición de vistas heredadas en Odoo?",
+            "options": [
+                "Buscar y seleccionar elementos específicos dentro de la vista original para modificarlos",
+                "Definir nuevas relaciones entre objetos",
+                "Modificar directamente el código fuente del sistema",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Buscar y seleccionar elementos específicos dentro de la vista original para modificarlos"
+        },
+        {
+            "question": "¿Qué efecto tiene establecer incorrectamente el identificador externo(ID externo) al crear una acción de ventana personalizada en Odoo?",
+            "options": [
+                "La acción no podrá ser vinculada a ningún menú",
+                "El sistema generará un error al intentar cargar la acción",
+                "La acción funcionará, pero no será accesible desde la interfaz de usuario",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "La acción no podrá ser vinculada a ningún menú"
+        },
+        {
+            "question": "En Odoo, ¿qué diferencia fundamental existe entre una relación one2many y una relación many2one?",
+            "options": [
+                "one2many permite múltiples relaciones hacia un único registro, mientras que many2one permite una sola relación",
+                "many2one se utiliza para relaciones simples, mientras que one2many para relaciones complejas",
+                "one2many crea automáticamente una tabla intermedia en la base de datos",
+                "Ambas A y C son correctas"
+            ],
+            "answer": "Ambas A y C son correctas"
+        },
+        {
+            "question": "¿Qué problema técnico surge al no configurar adecuadamente los permisos de acceso en un tablero personalizado en Odoo?",
+            "options": [
+                "El tablero será visible para todos los usuarios, independientemente de sus roles",
+                "Los datos mostrados en el tablero podrían ser inaccesibles para algunos usuarios",
+                "El sistema generará errores al intentar cargar el tablero",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El tablero será visible para todos los usuarios, independientemente de sus roles"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se modifica una vista formulario sin considerar las vistas heredadas que dependen de ella?",
+            "options": [
+                "Las vistas heredadas podrían dejar de funcionar correctamente",
+                "El sistema generará errores al intentar cargar las vistas heredadas",
+                "Los cambios realizados no tendrán efecto en las vistas heredadas",
+                "Ninguna de las anteriores respuestas es correcta"
+            ],
+            "answer": "Las vistas heredadas podrían dejar de funcionar correctamente"
+        },
+        {
+            "question": "¿Qué implicaciones técnicas tiene no establecer correctamente los permisos de lectura en un objeto personalizado en Odoo?",
+            "options": [
+                "Los usuarios no podrán ver los datos almacenados en ese objeto",
+                "Las vistas asociadas al objeto mostrarán errores al intentar cargar",
+                "El sistema generará conflictos al sincronizar datos relacionados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En el proceso de creación de un informe personalizado en Odoo, ¿qué sucede si se omite configurar el identificador externo(ID externo)?",
+            "options": [
+                "El informe no podrá ser vinculado a ninguna acción de ventana",
+                "El sistema generará un error al intentar generar el informe",
+                "El informe funcionará, pero no será accesible desde la interfaz de usuario",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "El sistema generará un error al intentar generar el informe"
+        },
+        {
+            "question": "¿Qué riesgos potenciales existen al no documentar adecuadamente las modificaciones realizadas en un ERP durante su implementación?",
+            "options": [
+                "Dificultad para mantener el sistema en el futuro",
+                "Incremento de errores durante las actualizaciones del sistema",
+                "Imposibilidad de auditar el sistema correctamente",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En Odoo, ¿qué ocurre si se modifica incorrectamente la jerarquía de menús al crear un menú raíz personalizado?",
+            "options": [
+                "El menú podría no aparecer en la interfaz de usuario",
+                "Otras entradas de menú podrían quedar desvinculadas del nuevo menú",
+                "El sistema generará errores al intentar cargar el menú",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "¿Cuál es el impacto técnico de no definir correctamente las relaciones entre objetos al crear un modelo personalizado en Odoo?",
+            "options": [
+                "Las consultas relacionadas podrían devolver resultados incorrectos",
+                "Los informes basados en ese modelo podrían mostrar datos inconsistentes",
+                "El sistema generará errores al intentar sincronizar datos relacionados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
+        },
+        {
+            "question": "En el contexto de Odoo, ¿qué sucede si se omite configurar los permisos de eliminación en un objeto personalizado?",
+            "options": [
+                "Los usuarios no podrán eliminar registros en ese objeto",
+                "Los datos relacionados podrían quedar bloqueados en el sistema",
+                "El sistema generará errores al intentar eliminar registros relacionados",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Los usuarios no podrán eliminar registros en ese objeto"
+        },
+        {
+            "question": "¿Qué implica establecer incorrectamente la posición del atributo 'xpath' al editar una vista heredada en Odoo?",
+            "options": [
+                "El cambio realizado podría no tener efecto en la vista original",
+                "Las vistas heredadas podrían mostrar elementos duplicados o mal posicionados",
+                "El sistema generará errores al intentar cargar la vista",
+                "Todas las opciones son correctas"
+            ],
+            "answer": "Todas las opciones son correctas"
         }
     ]
 }
