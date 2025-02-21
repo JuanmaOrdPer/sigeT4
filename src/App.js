@@ -9,9 +9,10 @@ const Quiz = () => {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedTheme, setSelectedTheme] = useState("tema4");
+  const [selectedTheme, setSelectedTheme] = useState("tema1");
   const [timer, setTimer] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [allQuestionsUsed, setAllQuestionsUsed] = useState(false);
   const questionsPerPage = 5;
 
   const shuffleArray = useCallback((array) => {
@@ -23,7 +24,6 @@ const Quiz = () => {
     return newArray;
   }, []);
 
-  // Timer effect
   useEffect(() => {
     let interval;
     if (isTimerRunning) {
@@ -47,43 +47,45 @@ const Quiz = () => {
         const response = await fetch(
           `${process.env.PUBLIC_URL}/${selectedTheme}.json`
         );
-        if (!response.ok) {
-          throw new Error("No se pudo cargar el archivo JSON.");
-        }
+        if (!response.ok) throw new Error("No se pudo cargar el archivo JSON.");
+
         const data = await response.json();
         const quizQuestions = data.quiz || [];
         const usedQuestionIndices =
           JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) ||
           [];
 
-        const availableQuestions = quizQuestions.filter(
-          (_, index) => !usedQuestionIndices.includes(index)
-        );
-
-        if (availableQuestions.length < 25) {
+        let availableQuestions = [];
+        if (quizQuestions.length === 0) {
+          availableQuestions = [];
+        } else if (usedQuestionIndices.length >= quizQuestions.length) {
+          availableQuestions = shuffleArray(quizQuestions).slice(0, 25);
           localStorage.removeItem(`usedQuestions_${selectedTheme}`);
+        } else {
+          availableQuestions = quizQuestions.filter(
+            (_, index) => !usedQuestionIndices.includes(index)
+          );
         }
 
-        const shuffledAvailableQuestions = shuffleArray(availableQuestions);
-        const selectedQuestions = shuffledAvailableQuestions
+        const selectedQuestions = shuffleArray(availableQuestions)
           .slice(0, 25)
           .map((question) => ({
             ...question,
             options: shuffleArray(question.options),
           }));
 
-        const updatedUsedQuestionIndices = Array.from(
-          new Set([
+        if (usedQuestionIndices.length < quizQuestions.length) {
+          const newUsedIndices = [
             ...usedQuestionIndices,
-            ...selectedQuestions.map((_, index) =>
-              quizQuestions.indexOf(shuffledAvailableQuestions[index])
+            ...selectedQuestions.map((q) =>
+              quizQuestions.findIndex((item) => item.question === q.question)
             ),
-          ])
-        );
-        localStorage.setItem(
-          `usedQuestions_${selectedTheme}`,
-          JSON.stringify(updatedUsedQuestionIndices)
-        );
+          ];
+          localStorage.setItem(
+            `usedQuestions_${selectedTheme}`,
+            JSON.stringify(Array.from(new Set(newUsedIndices)))
+          );
+        }
 
         setAllQuestions(quizQuestions);
         setQuestions(selectedQuestions);
@@ -99,6 +101,14 @@ const Quiz = () => {
   useEffect(() => {
     loadQuestions(selectedTheme);
   }, [selectedTheme, loadQuestions]);
+
+  useEffect(() => {
+    const checkCompletion = () => {
+      const used = JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) || [];
+      setAllQuestionsUsed(used.length >= allQuestions.length && allQuestions.length > 0);
+    };
+    checkCompletion();
+  }, [allQuestions, selectedTheme]);
 
   useEffect(() => {
     let calculatedScore = 0;
@@ -146,12 +156,14 @@ const Quiz = () => {
   };
 
   const resetQuiz = () => {
+    localStorage.removeItem(`usedQuestions_${selectedTheme}`);
     setSelectedAnswers({});
     setScore(0);
     setShowResults(false);
     setCurrentPage(0);
     setTimer(0);
     setIsTimerRunning(false);
+    setAllQuestionsUsed(false);
     loadQuestions(selectedTheme);
   };
 
@@ -189,6 +201,7 @@ const Quiz = () => {
     setCurrentPage(0);
     setTimer(0);
     setIsTimerRunning(false);
+    setAllQuestionsUsed(false);
   };
 
   const totalPages = Math.ceil(questions.length / questionsPerPage);
@@ -203,20 +216,36 @@ const Quiz = () => {
     );
   }
 
+  if (allQuestionsUsed) {
+    return (
+      <div className="header">
+        <h2>¡Has completado todas las preguntas de esta unidad!</h2>
+        <p>El cuestionario continuará con preguntas repetidas.</p>
+        <button className="button" onClick={resetQuiz}>
+          Comenzar de nuevo
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
       <div className="main-content">
         <div className="header">
           <div className="theme-selector">
-            <h1>Selecciona Unidad: 
-            <select
-              value={selectedTheme}
-              onChange={handleThemeChange}
-              className="theme-dropdown"
-            >
-              <option value="tema4">Unidad 4</option>
-              <option value="tema5">Unidad 5</option>
-            </select>
+            <h1>
+              Selecciona Unidad:
+              <select
+                value={selectedTheme}
+                onChange={handleThemeChange}
+                className="theme-dropdown"
+              >
+                <option value="tema1">Unidad 1</option>
+                <option value="tema2">Unidad 2</option>
+                <option value="tema3">Unidad 3</option>
+                <option value="tema4">Unidad 4</option>
+                <option value="tema5">Unidad 5</option>
+              </select>
             </h1>
           </div>
           <h1>
@@ -245,30 +274,28 @@ const Quiz = () => {
           </button>
         </div>
         <div className="pagination">
-              <button
-                className="button button-auto"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 0}
-              >
-                Anterior
-              </button>
-              <span>
-                Página {currentPage + 1} de {totalPages}
-              </span>
-              <button
-                className="button button-auto"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages - 1}
-              >
-                Siguiente
-              </button>
-            </div>
-        
-
+          <button
+            className="button button-auto"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 0}
+          >
+            Anterior
+          </button>
+          <span>
+            Página {currentPage + 1} de {totalPages}
+          </span>
+          <button
+            className="button button-auto"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages - 1}
+          >
+            Siguiente
+          </button>
+        </div>
         {showResults ? (
           <div className="results">
             <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-              Resultado Final: {score}/10 ({((score / 10) * 100).toFixed(1)}%)
+              Resultado Final: {Math.max(0, score)}/10
             </h2>
             <p style={{ textAlign: "center" }}>
               Tiempo total: {formatTime(timer)}
@@ -279,33 +306,34 @@ const Quiz = () => {
                   Pregunta {index + 1}: {question.question}
                 </h3>
                 <div>
-                  {question.options.map((option, i) => (
-                    <div
-                      key={i}
-                      className={`option-container ${selectedAnswers[index] === option ? "selected" : ""
-                        }`}
-                    >
-                      <label
-                        className="option-label"
-                        onClick={() => handleAnswerSelect(index, option)}
-                        style={{
-                          display: "block",
-                          width: "100%",
-                          cursor: "pointer",
-                        }}
-                      >
-                        <input
-
-                          type="radio"
-                          name={`question-${index}`}
-                          value={option}
-                          checked={selectedAnswers[index] === option}
-                          readOnly
-                        />
-                        <span className="option-text">{String.fromCharCode(97 + i).toUpperCase} {option} </span>
-                      </label>
-                    </div>
-                  ))}
+                  {question.options.map((option, i) => {
+                    let optionClass = "option-container";
+                    if (showResults) {
+                      if (option === question.answer) {
+                        optionClass += " correct";
+                      } else if (selectedAnswers[index] === option) {
+                        optionClass += " incorrect";
+                      }
+                    } else if (selectedAnswers[index] === option) {
+                      optionClass += " selected";
+                    }
+                    return (
+                      <div key={i} className={optionClass}>
+                        <label className="option-label">
+                          <input
+                            type="radio"
+                            name={`question-${index}`}
+                            value={option}
+                            checked={selectedAnswers[index] === option}
+                            readOnly
+                          />
+                          <span className="option-text">
+                            {String.fromCharCode(97 + i)} {option}
+                          </span>
+                        </label>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -327,10 +355,11 @@ const Quiz = () => {
                     {question.options.map((option, i) => (
                       <div
                         key={i}
-                        className={`option-container ${selectedAnswers[questionIndex] === option
+                        className={`option-container ${
+                          selectedAnswers[questionIndex] === option
                             ? "selected"
                             : ""
-                          }`}
+                        }`}
                         onClick={() =>
                           handleAnswerSelect(questionIndex, option)
                         }
@@ -341,7 +370,7 @@ const Quiz = () => {
                             name={`question-${questionIndex}`}
                             value={option}
                             checked={selectedAnswers[questionIndex] === option}
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                           <span>{String.fromCharCode(97 + i)}</span> {option}
                         </label>
