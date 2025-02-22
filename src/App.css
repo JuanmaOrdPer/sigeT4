@@ -43,6 +43,8 @@
     margin-left: 10px;
     padding: 5px;
     font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
   }
   
   /* Temporizador */
@@ -80,7 +82,7 @@
   }
   
   .button {
-    background-color: #4caf50;
+    background-color: #6f3535e1;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -91,7 +93,7 @@
   }
   
   .button:hover {
-    background-color: #45a049;
+    background-color: #6f35356a;
   }
   
   .button:disabled {
@@ -138,10 +140,9 @@
   .option-label input {
     margin-right: 10px;
   }
-  .option-label span {
-    margin-right: 8px;
+  .option-label strong {
+    margin-right: 20px;
     font-style: italic;
-    font-weight: bold;
   }
   
   
@@ -252,10 +253,14 @@
 }
 
 .start-button {
-  background: #27ae60;
+  background: #6f3535e1;
   font-size: 1.2rem;
   padding: 1rem 2rem;
   margin-top: 20px;
+}
+
+.start-button:hover {
+  background: #6f35356a;
 }
 
 .instructions-button {
@@ -353,6 +358,22 @@
   color: #7f8c8d;
   margin: 0;
   font-weight: 400;
+}
+.question-count-selector {
+  margin: 1rem 0;
+ 
+}
+
+.question-count-selector label {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.question-count-dropdown {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 /* Responsive para móviles */
