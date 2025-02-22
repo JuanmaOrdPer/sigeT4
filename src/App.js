@@ -9,7 +9,7 @@ const Quiz = () => {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedTheme, setSelectedTheme] = useState("tema4");
+  const [selectedTheme, setSelectedTheme] = useState(" ");
   const [timer, setTimer] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const questionsPerPage = 5;
