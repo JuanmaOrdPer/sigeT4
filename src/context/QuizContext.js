@@ -1,8 +1,14 @@
 // src/context/QuizContext.js
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { shuffleArray } from '../utils/shuffleArray'; // Importa shuffleArray desde utils
-import { formatTime } from '../utils/formatters'; // Importa formatTime desde utils
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import { shuffleArray } from "../utils/shuffleArray"; // Importa shuffleArray desde utils
+import { formatTime } from "../utils/formatters"; // Importa formatTime desde utils
 
 const QuizContext = createContext();
 
@@ -10,7 +16,7 @@ const QuizContext = createContext();
 export const useQuiz = () => {
   const context = useContext(QuizContext);
   if (!context) {
-    throw new Error('useQuiz must be used within a QuizProvider');
+    throw new Error("useQuiz must be used within a QuizProvider");
   }
   return context;
 };
@@ -25,28 +31,77 @@ export const QuizProvider = ({ children }) => {
   const [showResults, setShowResults] = useState(false); // Mostrar resultados
   const [loading, setLoading] = useState(true); // Estado de carga
   const [currentPage, setCurrentPage] = useState(0); // Página actual
-  const [selectedTheme, setSelectedTheme] = useState('tema1'); // Tema seleccionado
+  const [selectedTheme, setSelectedTheme] = useState(""); // Tema seleccionado
   const [timer, setTimer] = useState(0); // Temporizador
   const [isTimerRunning, setIsTimerRunning] = useState(false); // Estado del temporizador
   const [allQuestionsUsed, setAllQuestionsUsed] = useState(false); // Si se han usado todas las preguntas
   const questionsPerPage = 5; // Número de preguntas por página
-  const [questionCount, setQuestionCount] = useState(20); // Por defecto, 20 preguntas
+  const [questionCount, setQuestionCount] = useState(""); // Por defecto, 20 preguntas
+  const [questionsPerTheme, setQuestionsPerTheme] = useState({}); // Estado para almacenar el número total de preguntas por tema
+  const [title, setTitle] = useState(""); // Estado para el título del tema
 
+  // Función para obtener el número total de preguntas por tema
+  // Función para obtener el número total de preguntas por tema
+  useEffect(() => {
+    const fetchQuestionsCount = async () => {
+      const themes = ["tema1", "tema2", "tema3", "tema4", "tema5"];
+      const questionsCount = {};
+      const titles = {};
+
+      for (const theme of themes) {
+        try {
+          const response = await fetch(
+            `${process.env.PUBLIC_URL}/${theme}.json`
+          );
+          if (!response.ok) {
+            throw new Error(`No se pudo cargar el archivo JSON para ${theme}.`);
+          }
+
+          const data = await response.json();
+          const quizQuestions = data.quiz || [];
+          questionsCount[theme] = quizQuestions.length; // Guarda el número total de preguntas
+
+          // Guardar el título del tema
+          titles[theme] = data.title || "";
+
+          // Si hay un tema seleccionado, establecer su título
+          if (selectedTheme === theme) {
+            setTitle(data.title || "");
+          }
+        } catch (error) {
+          console.error(
+            `Error cargando el total de preguntas para ${theme}:`,
+            error
+          );
+          questionsCount[theme] = 0;
+          titles[theme] = "";
+        }
+      }
+
+      setQuestionsPerTheme(questionsCount);
+    };
+
+    fetchQuestionsCount();
+  }, [selectedTheme]); // Añadimos selectedTheme como dependencia
 
   // Función para cargar preguntas
   const loadQuestions = useCallback(
     async (selectedTheme) => {
       setLoading(true);
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/${selectedTheme}.json`);
+        const response = await fetch(
+          `${process.env.PUBLIC_URL}/${selectedTheme}.json`
+        );
         if (!response.ok) {
-          throw new Error('No se pudo cargar el archivo JSON.');
+          throw new Error("No se pudo cargar el archivo JSON.");
         }
 
         const data = await response.json();
         const quizQuestions = data.quiz || [];
+
         const usedQuestionIndices =
-          JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) || [];
+          JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) ||
+          [];
 
         const availableQuestions = quizQuestions.filter(
           (_, index) => !usedQuestionIndices.includes(index)
@@ -61,7 +116,7 @@ export const QuizProvider = ({ children }) => {
           .slice(0, questionCount)
           .map((question) => ({
             ...question,
-            options: shuffleArray(question.options), // Mezcla las opciones
+            options: shuffleArray(question.options),
           }));
 
         const updatedUsedQuestionIndices = Array.from(
@@ -77,16 +132,41 @@ export const QuizProvider = ({ children }) => {
           JSON.stringify(updatedUsedQuestionIndices)
         );
 
-        setAllQuestions(quizQuestions);
+        setAllQuestions((prev) => ({
+          ...prev,
+          [selectedTheme]: quizQuestions,
+        }));
         setQuestions(selectedQuestions);
       } catch (error) {
-        console.error('Error loading questions:', error);
+        console.error("Error loading questions:", error);
       } finally {
         setLoading(false);
       }
     },
     [shuffleArray, questionCount]
   );
+
+  const loadThemeTitle = useCallback(async (theme) => {
+    if (!theme) return;
+    try {
+      const response = await fetch(`${process.env.PUBLIC_URL}/${theme}.json`);
+      if (!response.ok) {
+        throw new Error("No se pudo cargar el archivo JSON.");
+      }
+      const data = await response.json();
+      setTitle(data.title || "");
+    } catch (error) {
+      console.error("Error loading theme title:", error);
+      setTitle("");
+    }
+  }, []);
+
+  // Añade el useEffect para el título aquí
+  useEffect(() => {
+    if (selectedTheme) {
+      loadThemeTitle(selectedTheme);
+    }
+  }, [selectedTheme, loadThemeTitle]);
 
   // Efecto para iniciar la carga de preguntas cuando `hasStarted` cambia
   useEffect(() => {
@@ -100,34 +180,41 @@ export const QuizProvider = ({ children }) => {
     let calculatedScore = 0;
     const scorePerCorrectAnswer = questionCount === 25 ? 0.4 : 0.5; // Valor por respuesta correcta
     const penaltyPerWrongAnswer = questionCount === 25 ? -0.2 : -0.25; // Penalización por respuesta incorrecta
-  
+
     questions.forEach((question, index) => {
-      if (selectedAnswers[index] === question.answer) {
+      if (selectedAnswers[index] === undefined) {
+        calculatedScore += 0;
+      } else if (selectedAnswers[index] === question.answer) {
         calculatedScore += scorePerCorrectAnswer;
       } else if (selectedAnswers[index]) {
         calculatedScore += penaltyPerWrongAnswer;
       }
     });
-  
-    setScore(calculatedScore.toFixed(1));
+    setScore(calculatedScore.toFixed(2));
+    if (calculatedScore < 0) {
+      setScore(0); 
+      } 
   }, [selectedAnswers, questions, questionCount]);
 
   // Función para manejar la selección de respuestas
-  const handleAnswerSelect = useCallback((questionIndex, option) => {
-    if (!isTimerRunning && Object.keys(selectedAnswers).length === 0) {
-      setIsTimerRunning(true);
-    }
-
-    setSelectedAnswers((prev) => {
-      const newAnswers = { ...prev };
-      if (prev[questionIndex] === option) {
-        delete newAnswers[questionIndex]; // Desselecciona si ya estaba seleccionada
-      } else {
-        newAnswers[questionIndex] = option; // Guarda la respuesta seleccionada
+  const handleAnswerSelect = useCallback(
+    (questionIndex, option) => {
+      if (!isTimerRunning && Object.keys(selectedAnswers).length === 0) {
+        setIsTimerRunning(true);
       }
-      return newAnswers;
-    });
-  }, [isTimerRunning, selectedAnswers]);
+
+      setSelectedAnswers((prev) => {
+        const newAnswers = { ...prev };
+        if (prev[questionIndex] === option) {
+          delete newAnswers[questionIndex]; // Desselecciona si ya estaba seleccionada
+        } else {
+          newAnswers[questionIndex] = option; // Guarda la respuesta seleccionada
+        }
+        return newAnswers;
+      });
+    },
+    [isTimerRunning, selectedAnswers]
+  );
 
   // Función para validar respuestas
   const handleValidateAnswers = () => {
@@ -143,7 +230,7 @@ export const QuizProvider = ({ children }) => {
     setTimeout(() => {
       const questionElement = document.getElementById(`question-${index}`);
       if (questionElement) {
-        questionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        questionElement.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
   };
@@ -164,31 +251,24 @@ export const QuizProvider = ({ children }) => {
   // Función para obtener el estado de una pregunta
   const getQuestionStatus = (index) => {
     if (!showResults) {
-      return selectedAnswers[index] ? 'answered' : 'unanswered';
+      return selectedAnswers[index] ? "answered" : "unanswered";
     }
-    if (!selectedAnswers[index]) return 'unanswered';
-    return selectedAnswers[index] === questions[index]?.answer ? 'correct' : 'incorrect';
+    if (!selectedAnswers[index]) return "unanswered";
+    return selectedAnswers[index] === questions[index]?.answer
+      ? "correct"
+      : "incorrect";
   };
 
-  // Efecto para calcular la puntuación
-  useEffect(() => {
-    let calculatedScore = 0;
-    questions.forEach((question, index) => {
-      if (selectedAnswers[index] === question.answer) {
-        calculatedScore += 0.4;
-      } else if (selectedAnswers[index]) {
-        calculatedScore -= 0.2;
-      }
-    });
-    setScore(calculatedScore.toFixed(1));
-  }, [selectedAnswers, questions]);
 
   // Efecto para verificar si se han usado todas las preguntas
   useEffect(() => {
     const checkCompletion = () => {
       const used =
-        JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) || [];
-      setAllQuestionsUsed(used.length >= allQuestions.length && allQuestions.length > 0);
+        JSON.parse(localStorage.getItem(`usedQuestions_${selectedTheme}`)) ||
+        [];
+      setAllQuestionsUsed(
+        used.length >= allQuestions.length && allQuestions.length > 0
+      );
     };
     checkCompletion();
   }, [allQuestions, selectedTheme]);
@@ -208,9 +288,9 @@ export const QuizProvider = ({ children }) => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
     setTimeout(() => {
-      const mainContent = document.querySelector('.main-content');
+      const mainContent = document.querySelector(".main-content");
       if (mainContent) {
-        mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
   };
@@ -252,10 +332,14 @@ export const QuizProvider = ({ children }) => {
     getQuestionStatus,
     handlePageChange,
     getCurrentQuestions,
-    formatTime, 
+    formatTime,
     shuffleArray,
-    questionCount, 
+    questionCount,
     setQuestionCount,
+    questionsPerTheme,
+    title,
+    setTitle,
+    loadThemeTitle,
   };
 
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;

@@ -12,6 +12,8 @@ export const Header = () => {
       setIsTimerRunning,
       setTimer,
       setSelectedAnswers,
+      setSelectedTheme,
+      setQuestionCount,
       formatTime,
       questionCount
     } = useQuiz();
@@ -44,6 +46,8 @@ export const Header = () => {
             setIsTimerRunning(false);
             setTimer(0);
             setSelectedAnswers({});
+            setSelectedTheme('');
+            setQuestionCount("");           
           }}
         >
           Volver a Inicio

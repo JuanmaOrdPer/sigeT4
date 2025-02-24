@@ -17,9 +17,9 @@ export const Question = ({ question, index, showResults }) => {
   };
 
   return (
-    <div className="question">
+    <div id={`question-${index}`} className="question">
       <h3>Pregunta {index + 1}: {question.question}</h3>
-      <div>
+      <div className='options-container'>
         {question.options.map((option, i) => (
           <div
             key={i}

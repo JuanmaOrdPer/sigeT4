@@ -6,7 +6,6 @@ import { Question } from './Question';
 import { QuestionGrid } from './QuestionGrid';
 import { LandingPage } from './LandingPage';
 
-
 export const Quiz = () => {
   const {
     hasStarted,
@@ -20,40 +19,49 @@ export const Quiz = () => {
     selectedAnswers,
     score,
     setCurrentPage,
-    questionCount,
+    totalPages,
   } = useQuiz();
 
+  // Función para obtener el estado de una pregunta
   const getQuestionStatus = (index) => {
     if (!showResults) {
-      return selectedAnswers[index] ? "answered" : "unanswered";
+      return selectedAnswers[index] ? 'answered' : 'unanswered';
     }
-    if (!selectedAnswers[index]) return "unanswered";
-    return selectedAnswers[index] === questions[index].answer ? "correct" : "incorrect";
+    if (!selectedAnswers[index]) return 'unanswered';
+    return selectedAnswers[index] === questions[index]?.answer ? 'correct' : 'incorrect';
   };
 
+  // Función para navegar a una pregunta específica
   const navigateToQuestion = (index) => {
     const newPage = Math.floor(index / questionsPerPage);
     setCurrentPage(newPage);
-
-    setTimeout(() => {
+    
+    // Asegurarnos que el elemento exista en el DOM antes de hacer scroll
+    const scrollToQuestion = () => {
       const questionElement = document.getElementById(`question-${index}`);
       if (questionElement) {
-        questionElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        questionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Si el elemento aún no existe, intentar de nuevo en unos milisegundos
+        requestAnimationFrame(scrollToQuestion);
       }
-    }, 100);
+    };
+  
+    requestAnimationFrame(scrollToQuestion);
   };
-
+  // Función para obtener las preguntas actuales según la página actual
   const getCurrentQuestions = () => {
     const start = currentPage * questionsPerPage;
-    return questions.slice(start, start + questionsPerPage);
+    const end = start + questionsPerPage;
+    return questions.slice(start, end); // Devuelve solo las preguntas correspondientes a la página actual
   };
 
+  // Renderizado condicional
   if (!hasStarted) {
     return <LandingPage />;
   }
 
   if (loading) {
-    console.log("Cargando preguntas...");
     return (
       <div className="header">
         <h2>Cargando preguntas...</h2>
@@ -62,7 +70,6 @@ export const Quiz = () => {
   }
 
   if (allQuestionsUsed) {
-    console.log("Todas las preguntas han sido usadas...");
     return (
       <div className="header">
         <h2>¡Has completado todas las preguntas de esta unidad!</h2>
@@ -75,13 +82,18 @@ export const Quiz = () => {
 
   return (
     <div className="container">
+      {/* Contenido principal */}
       <div className="main-content">
+        {/* Encabezado */}
         <Header />
-        <Pagination />
+        {/* Paginación */}
+        <Pagination totalPages={totalPages} onPageChange={(newPage) => setCurrentPage(newPage)} />
+
+        {/* Mostrar resultados o preguntas */}
         {showResults ? (
           <div className="results">
-            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-              Resultado Final: {Math.max(0, score)}/10
+            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>
+              Resultado Final: {score}/10
             </h2>
             {questions.map((question, index) => (
               <Question key={index} question={question} index={index} showResults={true} />
@@ -89,7 +101,8 @@ export const Quiz = () => {
           </div>
         ) : (
           <div>
-            {questions.slice(0, questionCount).map((question, pageIndex) => {
+            {/* Renderiza las preguntas actuales según la página */}
+            {getCurrentQuestions().map((question, pageIndex) => {
               const questionIndex = currentPage * questionsPerPage + pageIndex;
               return (
                 <Question
@@ -100,10 +113,13 @@ export const Quiz = () => {
                 />
               );
             })}
-            <Pagination />
+            {/* Paginación */}
+            <Pagination totalPages={totalPages} onPageChange={(newPage) => setCurrentPage(newPage)} />
           </div>
         )}
       </div>
+
+      {/* Barra lateral con cuadrícula de preguntas */}
       <QuestionGrid
         getQuestionStatus={getQuestionStatus}
         navigateToQuestion={navigateToQuestion}
