@@ -25,7 +25,7 @@
   
   /* Barra lateral */
   .sidebar {
-    position: fixed; /* Cambia a fixed para mantenerla en su posición */
+    position: flex; /* Cambia a fixed para mantenerla en su posición */
     top: 80px; /* Distancia desde el borde superior de la ventana */
     right: 80px; /* Distancia desde el borde izquierdo de la ventana */
     width: 250px; /* Define un ancho fijo para la barra lateral */
