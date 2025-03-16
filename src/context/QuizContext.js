@@ -249,16 +249,6 @@ export const QuizProvider = ({ children }) => {
     loadQuestions(selectedTheme);
   };
 
-  // Función para obtener el estado de una pregunta
-  const getQuestionStatus = (index) => {
-    if (!showResults) {
-      return selectedAnswers[index] ? "answered" : "unanswered";
-    }
-    if (!selectedAnswers[index]) return "unanswered";
-    return selectedAnswers[index] === questions[index]?.answer
-      ? "correct"
-      : "incorrect";
-  };
 
 
   // Efecto para verificar si se han usado todas las preguntas
@@ -330,7 +320,6 @@ export const QuizProvider = ({ children }) => {
     handleValidateAnswers,
     navigateToQuestion,
     resetQuiz,
-    getQuestionStatus,
     handlePageChange,
     getCurrentQuestions,
     formatTime,

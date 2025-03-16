@@ -15,7 +15,9 @@ export const Header = () => {
       setSelectedTheme,
       setQuestionCount,
       formatTime,
-      questionCount
+      questionCount,
+      score,
+      showResults
     } = useQuiz();
   
     const progressPercentage = (Object.keys(selectedAnswers).length / questions.length) * 100;
@@ -36,7 +38,7 @@ export const Header = () => {
           </div>
           <span>Progreso: {progressPercentage.toFixed(0)}%</span>
         </div>
-        <button className="button" onClick={resetQuiz}>
+      <button className="button" onClick={resetQuiz}>
           Reiniciar
         </button>
         <button

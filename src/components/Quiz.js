@@ -92,13 +92,22 @@ export const Quiz = () => {
         {/* Mostrar resultados o preguntas */}
         {showResults ? (
           <div className="results">
-            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>
-              Resultado Final: {score}/10
-            </h2>
-            {questions.map((question, index) => (
-              <Question key={index} question={question} index={index} showResults={true} />
-            ))}
-          </div>
+          <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>
+            {score>=5?  <span style={{ color: 'green' }}>✓</span> : <span style={{ color: 'red' }}>✗</span>}
+            Resultado Final: {score}/10
+          </h2>
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h4>Preguntas Acertadas: {questions.filter((q, index) => 
+            selectedAnswers[index] === q.answer).length}</h4>
+          <h4>Preguntas Falladas: {questions.filter((q, index) => 
+            selectedAnswers[index] && selectedAnswers[index] !== q.answer).length}</h4>
+          <h4>Preguntas sin responder: {questions.filter((q, index) => 
+            !selectedAnswers[index]).length}</h4>
+            </div>
+          {questions.map((question, index) => (
+            <Question key={index} question={question} index={index} showResults={true} />
+          ))}
+        </div>
         ) : (
           <div>
             {/* Renderiza las preguntas actuales según la página */}
@@ -118,7 +127,6 @@ export const Quiz = () => {
           </div>
         )}
       </div>
-
       {/* Barra lateral con cuadrícula de preguntas */}
       <QuestionGrid
         getQuestionStatus={getQuestionStatus}
