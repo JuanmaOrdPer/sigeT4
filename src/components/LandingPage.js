@@ -103,6 +103,15 @@ export const LandingPage = () => {
         </select>
       </div>
 
+            {/* Botón "Comenzar Examen" */}
+            <button
+        className="button start-button"
+        onClick={() => setHasStarted(true)}
+        disabled={!selectedTheme || !questionCount || !showInstructions} // Deshabilita si no están completas las selecciones
+      >
+        Comenzar Examen
+      </button>
+
       {/* Mostrar el número de preguntas si hay un tema seleccionado */}
       {selectedTheme && (
         <div className="questions-per-theme">
@@ -150,14 +159,7 @@ export const LandingPage = () => {
         </div>
       )}
 
-      {/* Botón "Comenzar Examen" */}
-      <button
-        className="button start-button"
-        onClick={() => setHasStarted(true)}
-        disabled={!selectedTheme || !questionCount || !showInstructions} // Deshabilita si no están completas las selecciones
-      >
-        Comenzar Examen
-      </button>
+
     </div>
   );
 };

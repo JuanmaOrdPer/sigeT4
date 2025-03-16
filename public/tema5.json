@@ -1442,16 +1442,6 @@
             "answer": "graph"
         },
         {
-            "question": "¿Qué atributo se utiliza en un campo para hacerlo invisible en una vista en Odoo?",
-            "options": [
-                "hidden='true'",
-                "invisible='1'",
-                "display='none'",
-                "visible='false'"
-            ],
-            "answer": "invisible='1'"
-        },
-        {
             "question": "¿Qué significa que una vista sea heredada en Odoo?",
             "options": [
                 "Es una copia exacta de otra vista",
